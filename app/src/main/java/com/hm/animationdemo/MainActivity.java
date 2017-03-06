@@ -1,13 +1,66 @@
 package com.hm.animationdemo;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+
+import com.hm.animationdemo.activity.PropertyAnimationActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.btn_animation)
+    Button btnAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+    }
+
+    @OnClick({R.id.btn_animation, R.id.btn_property_animation})
+    public void onClick(View view) {
+        //Animation animation = AnimationUtils.loadAnimation(this, R.anim.view_animation);
+       /* AlphaAnimation animation=new AlphaAnimation(0,1);
+        animation.setDuration(2000);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });*/
+       /* Rotate3dAnimation animation = new Rotate3dAnimation(0, 180, 0.5F, 1.0F, 0.5F, false);
+        animation.setDuration(2000);
+        animation.setFillAfter(true);
+        btnAnimation.startAnimation(animation);*/
+        switch (view.getId()) {
+            case R.id.btn_animation:
+                Intent starter = new Intent(this, LayoutAnimationActivity.class);
+                startActivity(starter);
+                overridePendingTransition(R.anim.enter_ainm, R.anim.exit_ainm);
+                break;
+            case R.id.btn_property_animation:
+                PropertyAnimationActivity.launch(this);
+                break;
+            default:
+                break;
+        }
+
     }
 }
