@@ -10,20 +10,22 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_animation"
+            android:id="@+id/btn_listen_animation"
             android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:text="Hello World!" />
+            android:layout_height="80dp"
+            android:text="view 动画" />
 
         <Button
             android:id="@+id/btn_property_animation"
             android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:text="Hello World!" />
+            android:layout_height="80dp"
+            android:text="属性动画" />
+
+        <Button
+            android:id="@+id/btn_launch_PointViewActivity"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:text="PointView" />
     </LinearLayout>
 
 </ScrollView>
