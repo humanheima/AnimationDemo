@@ -1,6 +1,7 @@
 package com.hm.animationdemo.activity;
 
-import android.content.Context;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
@@ -25,7 +26,10 @@ public class LayoutAnimationActivity extends AppCompatActivity {
     private List<String> dataList;
     private ListViewAdapter adapter;
 
-    public static void launch(Context context) {
+    public static void launch(Activity context) {
+        Intent starter = new Intent(context, LayoutAnimationActivity.class);
+        context.startActivity(starter);
+        context.overridePendingTransition(R.anim.enter_ainm, R.anim.exit_ainm);
 
     }
 
@@ -34,8 +38,8 @@ public class LayoutAnimationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_animation);
         ButterKnife.bind(this);
-        Animation animation= AnimationUtils.loadAnimation(this,R.anim.view_animation);
-        LayoutAnimationController controller=new LayoutAnimationController(animation);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.view_animation);
+        LayoutAnimationController controller = new LayoutAnimationController(animation);
         controller.setDelay(0.5f);
         controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
         listView.setLayoutAnimation(controller);

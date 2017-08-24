@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+            android:id="@+id/activity_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,19 +13,26 @@
             android:id="@+id/btn_listen_animation"
             android:layout_width="200dp"
             android:layout_height="80dp"
-            android:text="view 动画" />
+            android:text="Layout动画"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/btn_property_animation"
             android:layout_width="200dp"
             android:layout_height="80dp"
-            android:text="属性动画" />
+            android:text="属性动画"/>
+
+        <Button
+            android:id="@+id/btn_view_animation"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:text="View动画"/>
 
         <Button
             android:id="@+id/btn_launch_PointViewActivity"
             android:layout_width="200dp"
             android:layout_height="80dp"
-            android:text="PointView" />
+            android:text="PointView"/>
     </LinearLayout>
 
 </ScrollView>

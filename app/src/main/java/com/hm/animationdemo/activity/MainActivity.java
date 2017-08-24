@@ -1,14 +1,13 @@
-package com.hm.animationdemo;
+package com.hm.animationdemo.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import com.hm.animationdemo.activity.LayoutAnimationActivity;
-import com.hm.animationdemo.activity.PointViewActivity;
-import com.hm.animationdemo.activity.PropertyAnimationActivity;
+import com.hm.animationdemo.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,13 +23,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.view_animation);
+        animation.setDuration(2000);
+        animation.setFillAfter(true);
+        btnAnimation.startAnimation(animation);
     }
 
-    @OnClick({R.id.btn_listen_animation, R.id.btn_property_animation, R.id.btn_launch_PointViewActivity})
+    @OnClick({R.id.btn_listen_animation, R.id.btn_view_animation, R.id.btn_property_animation, R.id.btn_launch_PointViewActivity})
     public void onClick(View view) {
-        //Animation animation = AnimationUtils.loadAnimation(this, R.anim.view_animation);
+
        /* AlphaAnimation animation=new AlphaAnimation(0,1);
-        animation.setDuration(2000);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -49,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
         });*/
        /* Rotate3dAnimation animation = new Rotate3dAnimation(0, 180, 0.5F, 1.0F, 0.5F, false);
         animation.setDuration(2000);
-        animation.setFillAfter(true);
-        btnAnimation.startAnimation(animation);*/
+        */
         switch (view.getId()) {
             case R.id.btn_listen_animation:
-                Intent starter = new Intent(this, LayoutAnimationActivity.class);
-                startActivity(starter);
-                overridePendingTransition(R.anim.enter_ainm, R.anim.exit_ainm);
+                LayoutAnimationActivity.launch(this);
+                break;
+            case R.id.btn_view_animation:
+                ViewAnimationActivity.launch(this);
                 break;
             case R.id.btn_property_animation:
                 PropertyAnimationActivity.launch(this);
