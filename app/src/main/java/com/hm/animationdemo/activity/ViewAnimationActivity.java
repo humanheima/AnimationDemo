@@ -1,9 +1,9 @@
 package com.hm.animationdemo.activity;
 
-import android.content.Context;
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
@@ -13,12 +13,13 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
 import com.hm.animationdemo.R;
+import com.hm.animationdemo.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ViewAnimationActivity extends AppCompatActivity {
+public class ViewAnimationActivity extends BaseActivity {
 
     @BindView(R.id.btn_rotate)
     Button btnRotate;
@@ -38,9 +39,9 @@ public class ViewAnimationActivity extends AppCompatActivity {
 
     private static final String TAG = "ViewAnimationActivity";
 
-    public static void launch(Context context) {
+    public static void launch(Activity context) {
         Intent starter = new Intent(context, ViewAnimationActivity.class);
-        context.startActivity(starter);
+        context.startActivity(starter, ActivityOptions.makeSceneTransitionAnimation(context).toBundle());
     }
 
     @Override

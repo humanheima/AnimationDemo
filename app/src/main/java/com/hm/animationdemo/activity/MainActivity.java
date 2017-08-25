@@ -1,22 +1,28 @@
 package com.hm.animationdemo.activity;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Pair;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.hm.animationdemo.R;
+import com.hm.animationdemo.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.btn_listen_animation)
     Button btnAnimation;
+
+    @BindView(R.id.btn_launch_SharedComponentActivity)
+    Button btnLaunchSharedComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,29 +35,9 @@ public class MainActivity extends AppCompatActivity {
         btnAnimation.startAnimation(animation);
     }
 
-    @OnClick({R.id.btn_listen_animation, R.id.btn_view_animation, R.id.btn_property_animation, R.id.btn_launch_PointViewActivity})
+    @OnClick({R.id.btn_listen_animation, R.id.btn_view_animation, R.id.btn_property_animation,
+            R.id.btn_launch_PointViewActivity, R.id.btn_launch_SharedComponentActivity})
     public void onClick(View view) {
-
-       /* AlphaAnimation animation=new AlphaAnimation(0,1);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });*/
-       /* Rotate3dAnimation animation = new Rotate3dAnimation(0, 180, 0.5F, 1.0F, 0.5F, false);
-        animation.setDuration(2000);
-        */
         switch (view.getId()) {
             case R.id.btn_listen_animation:
                 LayoutAnimationActivity.launch(this);
@@ -64,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_launch_PointViewActivity:
                 PointViewActivity.launch(this);
+                break;
+            case R.id.btn_launch_SharedComponentActivity:
+                Intent starter = new Intent(this, SharedComponentActivity.class);
+                startActivity(starter, ActivityOptions.makeSceneTransitionAnimation(
+                        this, new Pair<View, String>(btnLaunchSharedComponent, "share_name")).toBundle());
                 break;
             default:
                 break;

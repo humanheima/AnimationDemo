@@ -20,6 +20,8 @@
         <activity android:name=".activity.PointViewActivity"/>
         <activity android:name=".activity.ViewAnimationActivity">
         </activity>
+        <activity android:name=".activity.SharedComponentActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,16 +1,17 @@
 package com.hm.animationdemo.activity;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.hm.animationdemo.R;
+import com.hm.animationdemo.base.BaseActivity;
 
-public class PointViewActivity extends AppCompatActivity {
+public class PointViewActivity extends BaseActivity {
 
-    public static void launch(Context context) {
+    public static void launch(Activity context) {
         Intent starter = new Intent(context, PointViewActivity.class);
+        //context.startActivity(starter, ActivityOptions.makeSceneTransitionAnimation(context).toBundle());
         context.startActivity(starter);
     }
 

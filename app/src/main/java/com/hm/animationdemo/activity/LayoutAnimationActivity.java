@@ -1,9 +1,9 @@
 package com.hm.animationdemo.activity;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.hm.animationdemo.R;
 import com.hm.animationdemo.adapter.ListViewAdapter;
+import com.hm.animationdemo.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LayoutAnimationActivity extends AppCompatActivity {
+public class LayoutAnimationActivity extends BaseActivity {
 
     @BindView(R.id.list_view)
     ListView listView;
@@ -28,9 +29,7 @@ public class LayoutAnimationActivity extends AppCompatActivity {
 
     public static void launch(Activity context) {
         Intent starter = new Intent(context, LayoutAnimationActivity.class);
-        context.startActivity(starter);
-        context.overridePendingTransition(R.anim.enter_ainm, R.anim.exit_ainm);
-
+        context.startActivity(starter, ActivityOptions.makeSceneTransitionAnimation(context).toBundle());
     }
 
     @Override

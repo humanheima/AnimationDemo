@@ -6,6 +6,23 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowEnterTransition">@transition/activity_explode</item>
+        <item name="android:windowExitTransition">@transition/activity_explode</item>
+    </style>
+
+    <!--设置Activity切换的动画-->
+    <!--<item name="android:windowAnimationStyle">@style/ActivityStyle</item>-->
+
+    <!--Activity切换的动画-->
+    <style name="ActivityStyle">
+        <!--用于设置打开新的Activity并进入新的Activity展示的动画-->
+        <item name="android:activityOpenEnterAnimation">@anim/enter_ainm</item>
+        <!--用于设置打开新的Activity并销毁之前的Activity展示的动画-->
+        <item name="android:activityOpenExitAnimation">@anim/exit_ainm</item>
+        <!--用于设置关闭当前Activity进入上一个Activity展示的动画-->
+        <item name="android:activityCloseEnterAnimation">@anim/enter_ainm</item>
+        <!--用于设置关闭当前Activity时并退出当前Activity展示的动画-->
+        <item name="android:activityCloseExitAnimation">@anim/exit_ainm</item>
     </style>
 
 </resources>

@@ -10,16 +10,17 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
-import android.content.Context;
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 
 import com.hm.animationdemo.R;
+import com.hm.animationdemo.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +29,7 @@ import butterknife.OnClick;
 import static android.animation.ObjectAnimator.ofFloat;
 import static com.hm.animationdemo.R.id.btn_listen_animation;
 
-public class PropertyAnimationActivity extends AppCompatActivity {
+public class PropertyAnimationActivity extends BaseActivity {
 
     LinearInterpolator linearInterpolator;
     IntEvaluator intEvaluator;
@@ -48,9 +49,9 @@ public class PropertyAnimationActivity extends AppCompatActivity {
     @BindView(R.id.btn_value_animation)
     Button btnValueAnimation;
 
-    public static void launch(Context context) {
+    public static void launch(Activity context) {
         Intent starter = new Intent(context, PropertyAnimationActivity.class);
-        context.startActivity(starter);
+        context.startActivity(starter, ActivityOptions.makeSceneTransitionAnimation(context).toBundle());
     }
 
     @Override
