@@ -37,10 +37,17 @@
         <Button
             android:id="@+id/btn_launch_SharedComponentActivity"
             android:layout_width="200dp"
-            android:background="@color/colorPrimary"
-            android:transitionName="share_name"
             android:layout_height="80dp"
-            android:text="组件过渡动画"/>
+            android:background="@color/colorPrimary"
+            android:text="组件过渡动画"
+            android:transitionName="share_name"/>
+
+        <Button
+            android:id="@+id/btn_launch_FrameAnimationActivity"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:text="帧动画"
+            android:transitionName="share_name"/>
 
     </LinearLayout>
 

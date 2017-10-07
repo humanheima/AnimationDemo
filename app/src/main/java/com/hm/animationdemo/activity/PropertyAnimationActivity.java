@@ -26,7 +26,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.animation.ObjectAnimator.ofFloat;
 import static com.hm.animationdemo.R.id.btn_listen_animation;
 
 public class PropertyAnimationActivity extends BaseActivity {
@@ -66,9 +65,12 @@ public class PropertyAnimationActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_animation_xml:
-                AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.property_animation);
+               /* AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.property_animation);
                 animatorSet.setTarget(btnAnimationXml);
-                animatorSet.start();
+                animatorSet.start();*/
+                Animator animatorUnit = AnimatorInflater.loadAnimator(this, R.animator.property_animation_unit);
+                animatorUnit.setTarget(btnAnimationXml);
+                animatorUnit.start();
                 break;
             case R.id.btn_bg_animation:
                 final ValueAnimator colorAnimator = ObjectAnimator.ofInt(btnBgAnimation, "backgroundColor", 0xFFFF8080, 0xFF8080FF);
@@ -90,7 +92,7 @@ public class PropertyAnimationActivity extends BaseActivity {
                 set.start();
                 break;
             case btn_listen_animation:
-                ObjectAnimator objectAnimator = ofFloat(btnAnimation, "scaleX", 1.5F);
+                ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(btnAnimation, "scaleX", 1.5F);
                 objectAnimator.setDuration(3000);
                 objectAnimator.addListener(new AnimatorListenerAdapter() {
                     @Override

@@ -5,7 +5,6 @@
            android:fromXDelta="0%"
            android:fromYDelta="0%"
            android:toXDelta="60%"
-           android:toYDelta="100%"
-    >
+           android:toYDelta="100%">
 
 </translate>

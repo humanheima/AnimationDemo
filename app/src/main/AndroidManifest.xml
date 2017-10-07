@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".activity.SharedComponentActivity">
         </activity>
+        <activity android:name=".activity.FrameAnimationActivity">
+        </activity>
     </application>
 
 </manifest>

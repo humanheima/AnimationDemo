@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick({R.id.btn_listen_animation, R.id.btn_view_animation, R.id.btn_property_animation,
-            R.id.btn_launch_PointViewActivity, R.id.btn_launch_SharedComponentActivity})
+            R.id.btn_launch_PointViewActivity, R.id.btn_launch_SharedComponentActivity, R.id.btn_launch_FrameAnimationActivity})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_listen_animation:
@@ -55,6 +55,9 @@ public class MainActivity extends BaseActivity {
                 Intent starter = new Intent(this, SharedComponentActivity.class);
                 startActivity(starter, ActivityOptions.makeSceneTransitionAnimation(
                         this, new Pair<View, String>(btnLaunchSharedComponent, "share_name")).toBundle());
+                break;
+            case R.id.btn_launch_FrameAnimationActivity:
+                FrameAnimationActivity.launch(this);
                 break;
             default:
                 break;

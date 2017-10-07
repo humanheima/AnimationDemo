@@ -54,7 +54,6 @@ public class ViewAnimationActivity extends BaseActivity {
         alphaAnimation = (AlphaAnimation) AnimationUtils.loadAnimation(this, R.anim.alpha_animation);
         rotateAnimation = (RotateAnimation) AnimationUtils.loadAnimation(this, R.anim.rotate_animation);
         animationSet = (AnimationSet) AnimationUtils.loadAnimation(this, R.anim.set_animation);
-
     }
 
     @OnClick(R.id.btn_rotate)
