@@ -26,7 +26,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static android.animation.ObjectAnimator.ofFloat;
-import static com.hm.animationdemo.R.id.btn_listen_animation;
 
 public class PropertyAnimationActivity extends AppCompatActivity {
 
@@ -34,8 +33,10 @@ public class PropertyAnimationActivity extends AppCompatActivity {
     IntEvaluator intEvaluator;
     TimeInterpolator timeInterpolator;
     PropertyValuesHolder holder;
+
     private final String TAG = getClass().getSimpleName();
-    @BindView(btn_listen_animation)
+
+    @BindView(R.id.btn_listen_animation)
     Button btnAnimation;
     @BindView(R.id.btn_animation_set)
     Button btnAnimationSet;
@@ -47,6 +48,9 @@ public class PropertyAnimationActivity extends AppCompatActivity {
     Button btnProAnimation;
     @BindView(R.id.btn_value_animation)
     Button btnValueAnimation;
+
+    @BindView(R.id.btn_property_value_holder)
+    Button btnPropertyValueHolder;
 
     public static void launch(Context context) {
         Intent starter = new Intent(context, PropertyAnimationActivity.class);
@@ -60,10 +64,19 @@ public class PropertyAnimationActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({btn_listen_animation, R.id.btn_animation_xml, R.id.btn_bg_animation,
-            R.id.btn_animation_set, R.id.btn_pro_animation, R.id.btn_value_animation})
+    @OnClick({R.id.btn_property_value_holder, R.id.btn_listen_animation, R.id.btn_animation_xml,
+            R.id.btn_bg_animation, R.id.btn_animation_set, R.id.btn_pro_animation,
+            R.id.btn_value_animation})
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.btn_property_value_holder:
+                PropertyValuesHolder valuesHolder1 = PropertyValuesHolder.ofFloat("scaleX", 1F, 1.5F,1F);
+                PropertyValuesHolder valuesHolder2 = PropertyValuesHolder.ofFloat("rotationX", 0F, 90F, 0F);
+                PropertyValuesHolder valuesHolder3 = PropertyValuesHolder.ofFloat("alpha", 1.0F, 0.3F, 1F);
+                ObjectAnimator valuesHolder = ObjectAnimator.ofPropertyValuesHolder(btnPropertyValueHolder, valuesHolder1, valuesHolder2, valuesHolder3);
+                valuesHolder.setDuration(2000);
+                valuesHolder.start();
+                break;
             case R.id.btn_animation_xml:
                 AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.property_animation);
                 animatorSet.setTarget(btnAnimationXml);
@@ -88,7 +101,7 @@ public class PropertyAnimationActivity extends AppCompatActivity {
                 set.setTarget(btnAnimationSet);
                 set.start();
                 break;
-            case btn_listen_animation:
+            case R.id.btn_listen_animation:
                 ObjectAnimator objectAnimator = ofFloat(btnAnimation, "scaleX", 1.5F);
                 objectAnimator.setDuration(3000);
                 objectAnimator.addListener(new AnimatorListenerAdapter() {

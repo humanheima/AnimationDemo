@@ -6,6 +6,13 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/btn_property_value_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="组合动画之PropertyValuesHolder"
+        android:textAllCaps="false" />
+
+    <Button
         android:id="@+id/btn_animation_xml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,8 +33,8 @@
     <Button
         android:id="@+id/btn_listen_animation"
         android:layout_width="wrap_content"
-        android:text="监听动画的开始"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="监听动画的开始" />
 
     <Button
         android:id="@+id/btn_pro_animation"
