@@ -16,10 +16,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.hm.animationdemo.R;
+import com.hm.animationdemo.anim.SwingAnimation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +55,11 @@ public class PropertyAnimationActivity extends AppCompatActivity {
     @BindView(R.id.btn_property_value_holder)
     Button btnPropertyValueHolder;
 
+    @BindView(R.id.ivBell)
+    ImageView ivBell;
+    @BindView(R.id.btn_bell_shake_animation)
+    Button btnBellShake;
+
     public static void launch(Context context) {
         Intent starter = new Intent(context, PropertyAnimationActivity.class);
         context.startActivity(starter);
@@ -66,11 +74,11 @@ public class PropertyAnimationActivity extends AppCompatActivity {
 
     @OnClick({R.id.btn_property_value_holder, R.id.btn_listen_animation, R.id.btn_animation_xml,
             R.id.btn_bg_animation, R.id.btn_animation_set, R.id.btn_pro_animation,
-            R.id.btn_value_animation})
+            R.id.btn_value_animation, R.id.btn_bell_shake_animation})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_property_value_holder:
-                PropertyValuesHolder valuesHolder1 = PropertyValuesHolder.ofFloat("scaleX", 1F, 1.5F,1F);
+                PropertyValuesHolder valuesHolder1 = PropertyValuesHolder.ofFloat("scaleX", 1F, 1.5F, 1F);
                 PropertyValuesHolder valuesHolder2 = PropertyValuesHolder.ofFloat("rotationX", 0F, 90F, 0F);
                 PropertyValuesHolder valuesHolder3 = PropertyValuesHolder.ofFloat("alpha", 1.0F, 0.3F, 1F);
                 ObjectAnimator valuesHolder = ObjectAnimator.ofPropertyValuesHolder(btnPropertyValueHolder, valuesHolder1, valuesHolder2, valuesHolder3);
@@ -143,6 +151,18 @@ public class PropertyAnimationActivity extends AppCompatActivity {
                 });
                 valueAnimator.setDuration(3000);
                 valueAnimator.start();
+                break;
+            case R.id.btn_bell_shake_animation:
+                Log.e(TAG, "btn_pro_animation");
+
+                SwingAnimation swingAnimation = new SwingAnimation(
+                        0f, 45f, -45f,
+                        Animation.RELATIVE_TO_SELF, 0.5f,
+                        Animation.RELATIVE_TO_SELF, 0.0f);
+                swingAnimation.setDuration(200);     //动画持续时间
+                swingAnimation.setFillAfter(false);  //是否保持动画结束画面
+                swingAnimation.setStartOffset(500);   //动画播放延迟
+                ivBell.startAnimation(swingAnimation);
                 break;
             default:
                 break;
