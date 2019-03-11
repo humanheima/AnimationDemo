@@ -30,7 +30,7 @@ public class ListViewAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(resource, parent, false);
             holder = new ViewHolder();
-            holder.textView = (TextView) convertView.findViewById(android.R.id.text1);
+            holder.textView = convertView.findViewById(android.R.id.text1);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();

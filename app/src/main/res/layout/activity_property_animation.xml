@@ -65,4 +65,11 @@
         android:layout_height="wrap_content"
         android:text="铃铛抖动动画"
         android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_rotate_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="旋转动画"
+        android:textAllCaps="false" />
 </LinearLayout>

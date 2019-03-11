@@ -74,7 +74,7 @@ public class PropertyAnimationActivity extends AppCompatActivity {
 
     @OnClick({R.id.btn_property_value_holder, R.id.btn_listen_animation, R.id.btn_animation_xml,
             R.id.btn_bg_animation, R.id.btn_animation_set, R.id.btn_pro_animation,
-            R.id.btn_value_animation, R.id.btn_bell_shake_animation})
+            R.id.btn_value_animation, R.id.btn_bell_shake_animation, R.id.btn_rotate_animation})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_property_value_holder:
@@ -156,13 +156,22 @@ public class PropertyAnimationActivity extends AppCompatActivity {
                 Log.e(TAG, "btn_pro_animation");
 
                 SwingAnimation swingAnimation = new SwingAnimation(
-                        0f, 45f, -45f,
+                        0f, 30f, -30f,
                         Animation.RELATIVE_TO_SELF, 0.5f,
                         Animation.RELATIVE_TO_SELF, 0.0f);
-                swingAnimation.setDuration(200);     //动画持续时间
+                swingAnimation.setDuration(800);     //动画持续时间
                 swingAnimation.setFillAfter(false);  //是否保持动画结束画面
+                //swingAnimation.setRepeatCount(2);
                 swingAnimation.setStartOffset(500);   //动画播放延迟
                 ivBell.startAnimation(swingAnimation);
+                break;
+            case R.id.btn_rotate_animation:
+                //角度大于0，是顺时针旋转
+                ObjectAnimator rotateObjectAnimator = ObjectAnimator.ofFloat(ivBell,
+                        "rotation", 0F, 45F, -45F, 45F, -45F, 45F, -45F, 0F);
+                rotateObjectAnimator.setDuration(3000);
+                rotateObjectAnimator.setInterpolator(new LinearInterpolator());
+                rotateObjectAnimator.start();
                 break;
             default:
                 break;

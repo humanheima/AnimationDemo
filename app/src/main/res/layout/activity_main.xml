@@ -13,19 +13,22 @@
             android:id="@+id/btn_listen_animation"
             android:layout_width="200dp"
             android:layout_height="80dp"
-            android:text="view 动画" />
+            android:text="view 动画"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_property_animation"
             android:layout_width="200dp"
             android:layout_height="80dp"
-            android:text="属性动画" />
+            android:text="属性动画"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_launch_PointViewActivity"
             android:layout_width="200dp"
             android:layout_height="80dp"
-            android:text="PointView" />
+            android:text="PointView"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </ScrollView>

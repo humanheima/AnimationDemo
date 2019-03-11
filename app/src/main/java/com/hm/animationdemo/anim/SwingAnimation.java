@@ -8,6 +8,14 @@ import android.view.animation.Transformation;
  * Crete by dumingwei on 2019/3/8
  * Desc: 钟摆动画
  * 参考链接：https://cloud.tencent.com/developer/article/1384616
+ * <p>
+ * leftDegree >0; rightDegree <0; 中间角度0度。 向左旋转角度是大于0的，向右旋转角度小于0；
+ * 整个动画运动轨迹
+ * 向左旋转30度 运动时间 1/8
+ * 向右旋转60度 运动时间 1/4
+ * 向左旋转60度 运动时间 1/4
+ * 向右旋转60度 运动时间 1/4
+ * 向左旋转30度回到起点 运动时间 1/8
  */
 public class SwingAnimation extends Animation {
 
@@ -66,17 +74,25 @@ public class SwingAnimation extends Animation {
     protected void applyTransformation(float interpolatedTime, Transformation t) {
         Log.d(TAG, "applyTransformation: " + interpolatedTime);
         float degrees;
-        float leftPos = (float) (1.0 / 4.0);
-        float rightPos = (float) (3.0 / 4.0);
+        float leftPos = (float) (1.0 / 8.0);
+        float rightPos = (float) (3.0 / 8.0);
+        float leftLeftPos = (float) (5.0 / 8.0);
+        float rightRightPos = (float) (7.0 / 8.0);
         if (interpolatedTime <= leftPos) {
-            //在1/4的时间要走完角度(mLeftDegrees - mMiddleDegrees)
-            degrees = mMiddleDegrees + ((mLeftDegrees - mMiddleDegrees) * interpolatedTime * 4);
+            //在1/8的时间要走完角度(mLeftDegrees - mMiddleDegrees)
+            degrees = mMiddleDegrees + ((mLeftDegrees - mMiddleDegrees) * interpolatedTime * 8);
         } else if (interpolatedTime < rightPos) {
-            //在1/2的时间要走完(mRightDegrees - mLeftDegrees)
-            degrees = mLeftDegrees + ((mRightDegrees - mLeftDegrees) * (interpolatedTime - leftPos) * 2);
+            //在1/4的时间要走完(mRightDegrees - mLeftDegrees)
+            degrees = mLeftDegrees + ((mRightDegrees - mLeftDegrees) * (interpolatedTime - leftPos) * 4);
+        } else if (interpolatedTime < leftLeftPos) {
+            //在1/4的时间要走完(mLeftDegrees-mRightDegrees)
+            degrees = mRightDegrees + ((mLeftDegrees - mRightDegrees) * (interpolatedTime - rightPos) * 4);
+        } else if (interpolatedTime < rightRightPos) {
+            //在1/4的时间要走完(mRightDegrees - mLeftDegrees)
+            degrees = mLeftDegrees + ((mRightDegrees - mLeftDegrees) * (interpolatedTime - leftLeftPos) * 4);
         } else {
-            //在1/4的时间内要走完(mMiddleDegrees - mRightDegrees)
-            degrees = mRightDegrees + ((mMiddleDegrees - mRightDegrees) * (interpolatedTime - rightPos) * 4);
+            //在1/8的时间内要走完(mRightDegrees - mMiddleDegrees)
+            degrees = mRightDegrees + ((mMiddleDegrees - mRightDegrees) * (interpolatedTime - rightRightPos) * 8);
         }
         Log.d(TAG, "applyTransformation:" + "degrees=" + degrees);
 

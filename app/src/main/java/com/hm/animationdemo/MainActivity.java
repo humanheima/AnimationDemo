@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.hm.animationdemo.activity.LayoutAnimationActivity;
 import com.hm.animationdemo.activity.PointViewActivity;
 import com.hm.animationdemo.activity.PropertyAnimationActivity;
+import com.hm.animationdemo.activity.ViewAnimationActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         btnAnimation.startAnimation(animation);*/
         switch (view.getId()) {
             case R.id.btn_listen_animation:
-                Intent starter = new Intent(this, LayoutAnimationActivity.class);
+                Intent starter = new Intent(this, ViewAnimationActivity.class);
                 startActivity(starter);
                 overridePendingTransition(R.anim.enter_ainm, R.anim.exit_ainm);
                 break;

@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.ViewAnimationActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +18,7 @@
         </activity>
         <activity android:name=".activity.LayoutAnimationActivity" />
         <activity android:name=".activity.PropertyAnimationActivity" />
-        <activity android:name=".activity.PointViewActivity"></activity>
+        <activity android:name=".activity.PointViewActivity" />
     </application>
 
 </manifest>
