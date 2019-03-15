@@ -20,6 +20,7 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.hm.animationdemo.R;
 import com.hm.animationdemo.anim.SwingAnimation;
@@ -40,7 +41,7 @@ public class PropertyAnimationActivity extends AppCompatActivity {
     private final String TAG = getClass().getSimpleName();
 
     @BindView(R.id.btn_listen_animation)
-    Button btnAnimation;
+    TextView tvAnimation;
     @BindView(R.id.btn_animation_set)
     Button btnAnimationSet;
     @BindView(R.id.btn_bg_animation)
@@ -110,14 +111,14 @@ public class PropertyAnimationActivity extends AppCompatActivity {
                 set.start();
                 break;
             case R.id.btn_listen_animation:
-                ObjectAnimator objectAnimator = ofFloat(btnAnimation, "scaleX", 1.5F);
+                ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(tvAnimation, "scaleX", 1.0F, 2.0F);
                 objectAnimator.setDuration(3000);
-                objectAnimator.addListener(new AnimatorListenerAdapter() {
+                /*objectAnimator.addListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationStart(Animator animation) {
                         Log.e(TAG, "onAnimationStart");
                     }
-                });
+                });*/
                 objectAnimator.start();
                 break;
             case R.id.btn_pro_animation:
@@ -170,6 +171,27 @@ public class PropertyAnimationActivity extends AppCompatActivity {
                 ObjectAnimator rotateObjectAnimator = ObjectAnimator.ofFloat(ivBell,
                         "rotation", 0F, 45F, -45F, 45F, -45F, 45F, -45F, 0F);
                 rotateObjectAnimator.setDuration(3000);
+
+                //绕中心点旋转，默认
+                /*ivBell.setPivotX(ivBell.getWidth() / 2.0F);
+                ivBell.setPivotY(ivBell.getHeight() / 2.0F);*/
+
+
+                /*//绕左上角旋转
+                ivBell.setPivotX(0.0F);
+                ivBell.setPivotY(0.0F);*/
+
+               /* //绕水平中心点
+                ivBell.setPivotY(0.0F);*/
+
+                //绕竖直中心点
+                ivBell.setPivotX(0.0F);
+
+                Log.d(TAG, "onClick: getPivotX=" + ivBell.getPivotX());
+                Log.d(TAG, "onClick: getPivotY=" + ivBell.getPivotY());
+                Log.d(TAG, "onClick: getLeft=" + ivBell.getLeft());
+                Log.d(TAG, "onClick: getX=" + ivBell.getX());
+                Log.d(TAG, "onClick: getWidth=" + ivBell.getWidth());
                 rotateObjectAnimator.setInterpolator(new LinearInterpolator());
                 rotateObjectAnimator.start();
                 break;

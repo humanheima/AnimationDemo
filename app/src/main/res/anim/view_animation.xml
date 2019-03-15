@@ -14,4 +14,10 @@
         android:duration="2000"
         android:fromAlpha="0"
         android:toAlpha="1" />
+
+    <!--<rotate
+        android:fromDegrees="0"
+        android:pivotX="0.5"
+        android:pivotY="0.5"
+        android:toDegrees="100" />-->
 </set>

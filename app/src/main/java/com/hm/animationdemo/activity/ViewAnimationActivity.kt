@@ -42,12 +42,12 @@ class ViewAnimationActivity : AppCompatActivity() {
     private fun testRotateAnimation() {
         if (rotateAnimation == null) {
             //相对于view自身做动画
-            /*rotateAnimation = RotateAnimation(0F, -90F,
-                    Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F)
+            rotateAnimation = RotateAnimation(0F, -90F,
+                    Animation.RELATIVE_TO_SELF, 0.0F, Animation.RELATIVE_TO_SELF, 0.0F)
             rotateAnimation?.duration = 1000L
-            rotateAnimation?.fillAfter = true*/
+            rotateAnimation?.fillAfter = false
 
-            //相对于parent做动画
+           /* //相对于parent做动画
             rotateAnimation = RotateAnimation(0F, -90F,
                     Animation.RELATIVE_TO_PARENT, 0.5F, Animation.RELATIVE_TO_PARENT, 0.0F)
             rotateAnimation?.duration = 1000L
@@ -57,7 +57,7 @@ class ViewAnimationActivity : AppCompatActivity() {
             rotateAnimation = RotateAnimation(0F, -90F,
                     Animation.ABSOLUTE, btnRotate.width / 2.0F, Animation.ABSOLUTE, btnRotate.height / 2.0F)
             rotateAnimation?.duration = 1000L
-            rotateAnimation?.fillAfter = false
+            rotateAnimation?.fillAfter = false*/
         }
         btnRotate.startAnimation(rotateAnimation)
     }
