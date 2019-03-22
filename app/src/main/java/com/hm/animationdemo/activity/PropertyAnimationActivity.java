@@ -169,8 +169,9 @@ public class PropertyAnimationActivity extends AppCompatActivity {
             case R.id.btn_rotate_animation:
                 //角度大于0，是顺时针旋转
                 ObjectAnimator rotateObjectAnimator = ObjectAnimator.ofFloat(ivBell,
-                        "rotation", 0F, 45F, -45F, 45F, -45F, 45F, -45F, 0F);
-                rotateObjectAnimator.setDuration(3000);
+                        "rotation", 0F, 40, -40, 40, -40, 40, -40, 40, -40, 0F);
+                rotateObjectAnimator.setDuration(1500L);
+                //rotateObjectAnimator.setRepeatCount(1);
 
                 //绕中心点旋转，默认
                 /*ivBell.setPivotX(ivBell.getWidth() / 2.0F);
@@ -181,11 +182,11 @@ public class PropertyAnimationActivity extends AppCompatActivity {
                 ivBell.setPivotX(0.0F);
                 ivBell.setPivotY(0.0F);*/
 
-               /* //绕水平中心点
-                ivBell.setPivotY(0.0F);*/
+                //绕水平中心点
+                ivBell.setPivotY(0.0F);
 
                 //绕竖直中心点
-                ivBell.setPivotX(0.0F);
+                //ivBell.setPivotX(0.0F);
 
                 Log.d(TAG, "onClick: getPivotX=" + ivBell.getPivotX());
                 Log.d(TAG, "onClick: getPivotY=" + ivBell.getPivotY());
