@@ -1058,6 +1058,22 @@ private void performTraversals() {
 
 
 
+### TimeInterpolator（时间插值器） & TypeEvaluator（类型估值算法，即估值器）
+
+
+TimeInterpolator（时间插值器）：根据时间流逝的百分比计算出当前属性值改变的百分比。
+TypeEvaluator（类型估值算法，即估值器）：根据当前属性改变的百分比来计算改变后的属性值。
+
+那么TimeInterpolator和TypeEvaluator是怎么协同工作的呢？
+
+答：它们是实现非匀速动画的重要手段。属性动画是对属性做动画，属性要实现动画，首先由TimeInterpolator（插值器）
+根据时间流逝的百分比计算出当前属性值改变的百分比，并且插值器将这个百分比返回，这个时候插值器的工作就完成了。
+比如插值器返回的值是0.5，很显然我们要的不是0.5，而是当前属性的值，即当前属性变成了什么值，
+这就需要估值器根据当前属性改变的百分比来计算改变后的属性值，根据这个属性值，我们就可以设置当前属性的值了。
+
+[Android属性动画（二）之插值器与估值器](https://blog.csdn.net/qq_24530405/article/details/50630744) 
+
+
 
 
 
