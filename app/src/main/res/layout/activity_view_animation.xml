@@ -1,38 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    tools:context=".activity.ViewAnimationActivity">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnRotate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="旋转动画" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".activity.ViewAnimationActivity">
 
-    <Button
-        android:id="@+id/btnTranslate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="平移动画" />
+        <Button
+            android:id="@+id/btnRotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="旋转动画" />
 
-    <Button
-        android:id="@+id/btnScale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="缩放动画" />
+        <Button
+            android:id="@+id/btnTranslate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="平移动画" />
 
-    <Button
-        android:id="@+id/btnAhpha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="透明度动画" />
+        <Button
+            android:id="@+id/btnScale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="缩放动画" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnAlpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="透明度动画" />
+
+        <Button
+            android:id="@+id/btnAnimSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="动画集合" />
+
+
+        <ImageView
+            android:id="@+id/ivScene"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/scenery"
+            android:scaleType="centerCrop" />
+
+        <Button
+            android:id="@+id/btnScaleImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="演示镜头由远及近的效果" />
+
+        <include layout="@layout/layout_scanner_anim" />
+
+        <ImageView
+            android:id="@+id/ivframeAnim"
+            android:layout_width="32dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/anim_playing"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/ivframeAnimAnother"
+            android:layout_width="32dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorAccent"
+            android:layout_marginBottom="40dp"
+            android:scaleType="centerCrop" />
+
+    </LinearLayout>
+
+
+</ScrollView>
