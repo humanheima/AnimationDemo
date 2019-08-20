@@ -1,76 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_property_animation"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#cccccc"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_property_value_holder"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/activity_property_animation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="组合动画之PropertyValuesHolder"
-        android:textAllCaps="false" />
+        android:background="#cccccc"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_animation_xml"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="从xml文件中加载动画" />
+        <Button
+            android:id="@+id/btn_property_value_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="组合动画之PropertyValuesHolder"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_bg_animation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="改变背景颜色" />
+        <Button
+            android:id="@+id/btn_animation_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="从xml文件中加载动画" />
 
-    <Button
-        android:id="@+id/btn_animation_set"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="动画集合" />
+        <Button
+            android:id="@+id/btn_bg_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变背景颜色" />
 
-    <TextView
-        android:id="@+id/btn_listen_animation"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:background="@color/colorPrimary"
-        android:text="监听动画的开始" />
+        <Button
+            android:id="@+id/btn_animation_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="动画集合" />
 
-    <Button
-        android:id="@+id/btn_pro_animation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="任意属性做动画" />
+        <TextView
+            android:id="@+id/btn_listen_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimary"
+            android:text="监听动画的开始" />
 
-    <Button
-        android:id="@+id/btn_value_animation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ValueAnimation"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_pro_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="任意属性做动画" />
 
-    <ImageView
-        android:id="@+id/ivBell"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        android:src="@drawable/ic_bell" />
+        <Button
+            android:id="@+id/btn_value_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ValueAnimation"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_bell_shake_animation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="铃铛抖动动画"
-        android:textAllCaps="false" />
+        <ImageView
+            android:id="@+id/ivBell"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/ic_bell" />
 
-    <Button
-        android:id="@+id/btn_rotate_animation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="旋转动画"
-        android:textAllCaps="false" />
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_bell_shake_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="铃铛抖动动画"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_rotate_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="旋转动画"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnChangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变文字"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

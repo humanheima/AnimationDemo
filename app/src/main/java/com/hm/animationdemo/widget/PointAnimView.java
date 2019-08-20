@@ -1,6 +1,7 @@
 package com.hm.animationdemo.widget;
 
 import android.animation.AnimatorSet;
+import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -18,7 +19,7 @@ public class PointAnimView extends View {
 
     public static final float RADIUS = 50f;  //point点的半径
 
-    private MyPoint currentPoint;
+    private MyPoint currentPoint = new MyPoint(RADIUS, RADIUS);
 
     private Paint mPaint;
     private String color;
@@ -32,13 +33,7 @@ public class PointAnimView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         //第一次绘制初始的点之后就启动动画
-        if (currentPoint == null) {
-            currentPoint = new MyPoint(RADIUS, RADIUS);
-            drawCircle(canvas);
-            startAnimation();
-        } else {
-            drawCircle(canvas);
-        }
+        drawCircle(canvas);
     }
 
     private void drawCircle(Canvas canvas) {
@@ -61,25 +56,38 @@ public class PointAnimView extends View {
         anim.setDuration(5000);
         anim.start();
     }*/
-    private void startAnimation() {
+
+    public void startAnimation() {
         MyPoint startPoint = new MyPoint(RADIUS, RADIUS);
         MyPoint endPoint = new MyPoint(getWidth() - RADIUS, getHeight() - RADIUS);
         ValueAnimator anim = ValueAnimator.ofObject(new PointEvaluator(), startPoint, endPoint);
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        anim.addUpdateListener(animation -> {
+            currentPoint = (MyPoint) animation.getAnimatedValue();
+            invalidate();
+        });
+
+        ObjectAnimator anim2 = ObjectAnimator.ofObject(this, "color", new ColorEvaluator(),
+                "#FF0000FF", "#FFFF0000");
+
+
+        ValueAnimator argbAnim = ValueAnimator.ofInt(0xff0000ff, 0xffff0000);
+        argbAnim.setEvaluator(new ArgbEvaluator());
+        argbAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                currentPoint = (MyPoint) animation.getAnimatedValue();
-                invalidate();
+                int curValue = ((int) animation.getAnimatedValue());
+                mPaint.setColor(curValue);
             }
         });
-        ObjectAnimator anim2 = ObjectAnimator.ofObject(this, "color", new ColorEvaluator(),
-                "#0000FF", "#FF0000");
+
         AnimatorSet animSet = new AnimatorSet();
-        animSet.play(anim).with(anim2);
+        animSet.play(anim).with(argbAnim);
         animSet.setDuration(5000);
         animSet.start();
+
     }
 
+    //这两个方法是为了可以设置和获取color属性
     public String getColor() {
         return color;
     }
@@ -87,6 +95,5 @@ public class PointAnimView extends View {
     public void setColor(String color) {
         this.color = color;
         mPaint.setColor(Color.parseColor(color));
-        invalidate();
     }
 }

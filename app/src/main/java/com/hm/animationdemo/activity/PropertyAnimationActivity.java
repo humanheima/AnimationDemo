@@ -13,7 +13,6 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -22,14 +21,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.hm.animationdemo.R;
 import com.hm.animationdemo.anim.SwingAnimation;
+import com.hm.animationdemo.evaluator.CharEvaluator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static android.animation.ObjectAnimator.ofFloat;
 
 public class PropertyAnimationActivity extends AppCompatActivity {
 
@@ -61,6 +61,9 @@ public class PropertyAnimationActivity extends AppCompatActivity {
     @BindView(R.id.btn_bell_shake_animation)
     Button btnBellShake;
 
+    @BindView(R.id.btnChangeText)
+    Button btnChangeText;
+
     public static void launch(Context context) {
         Intent starter = new Intent(context, PropertyAnimationActivity.class);
         context.startActivity(starter);
@@ -75,7 +78,8 @@ public class PropertyAnimationActivity extends AppCompatActivity {
 
     @OnClick({R.id.btn_property_value_holder, R.id.btn_listen_animation, R.id.btn_animation_xml,
             R.id.btn_bg_animation, R.id.btn_animation_set, R.id.btn_pro_animation,
-            R.id.btn_value_animation, R.id.btn_bell_shake_animation, R.id.btn_rotate_animation})
+            R.id.btn_value_animation, R.id.btn_bell_shake_animation, R.id.btn_rotate_animation,
+            R.id.btnChangeText})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_property_value_holder:
@@ -196,6 +200,18 @@ public class PropertyAnimationActivity extends AppCompatActivity {
                 rotateObjectAnimator.setInterpolator(new LinearInterpolator());
                 rotateObjectAnimator.start();
                 break;
+            case R.id.btnChangeText:
+                ValueAnimator animChangeText = ValueAnimator.ofObject(new CharEvaluator(),
+                        'A', 'Z');
+                animChangeText.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        char text = ((char) animation.getAnimatedValue());
+                        btnChangeText.setText(String.valueOf(text));
+                    }
+                });
+                animChangeText.setDuration(2000);
+                animChangeText.start();
             default:
                 break;
         }
