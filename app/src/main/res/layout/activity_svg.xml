@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".chapter5.SVGActivity">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/svg_line" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/selector_svg_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv" />
+
+    <ImageView
+        android:id="@+id/ivDynamic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_bg_white_cornor_6"
+            android:hint="点击输入"
+            android:paddingLeft="8dp" />
+
+        <ImageView
+            android:id="@+id/ivAnimSearch"
+            android:layout_width="150dp"
+            android:layout_height="40dp" />
+
+    </FrameLayout>
+
+</LinearLayout>

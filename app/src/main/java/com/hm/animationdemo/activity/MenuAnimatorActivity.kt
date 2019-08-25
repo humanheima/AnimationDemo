@@ -9,14 +9,14 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.hm.animationdemo.R
-import kotlinx.android.synthetic.main.activity_path_animator.*
+import kotlinx.android.synthetic.main.activity_menu_animator.*
 
 /**
  * Crete by dumingwei on 2019-08-22
  * Desc: 《Android自定义控件开发入门与实战》第三章示例 路径动画
  *
  */
-class PathAnimatorActivity : AppCompatActivity() {
+class MenuAnimatorActivity : AppCompatActivity() {
 
 
     private var mIsMenuOpen = false
@@ -24,14 +24,14 @@ class PathAnimatorActivity : AppCompatActivity() {
     companion object {
 
         fun launch(context: Context) {
-            val intent = Intent(context, PathAnimatorActivity::class.java)
+            val intent = Intent(context, MenuAnimatorActivity::class.java)
             context.startActivity(intent)
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_path_animator)
+        setContentView(R.layout.activity_menu_animator)
     }
 
     fun onClick(view: View) {

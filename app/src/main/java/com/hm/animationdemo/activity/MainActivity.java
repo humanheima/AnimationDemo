@@ -1,4 +1,4 @@
-package com.hm.animationdemo;
+package com.hm.animationdemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,9 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.hm.animationdemo.activity.LayoutAnimationActivity;
-import com.hm.animationdemo.activity.PropertyAnimatorEntranceActivity;
-import com.hm.animationdemo.activity.ViewAnimationActivity;
+import com.hm.animationdemo.R;
+import com.hm.animationdemo.chapter5.SVGActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnLayoutTransition:
                 LayoutAnimationActivity.Companion.launch(this);
+                break;
+            case R.id.btnSvg:
+                SVGActivity.launch(this);
                 break;
             default:
                 break;

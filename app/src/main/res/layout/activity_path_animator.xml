@@ -1,49 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="10dp"
-    android:layout_marginBottom="10dp">
+    tools:context=".chapter5.PathAnimatorActivity">
 
-    <Button
-        android:id="@+id/menu"
-        style="@style/MenuStyle"
-        android:background="@drawable/menu"
-        android:onClick="onClick" />
+    <com.hm.animationdemo.chapter5.widget.GetSegmentView
+        android:id="@+id/getSegment"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/item1"
-        style="@style/MenuItemStyle"
-        android:background="@drawable/circle1"
-        android:onClick="onClick"
-        android:visibility="gone" />
+    <com.hm.animationdemo.chapter5.widget.GetPosTanView
+        android:id="@+id/getPosTan"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getSegment" />
 
-    <Button
-        android:id="@+id/item2"
-        style="@style/MenuItemStyle"
-        android:background="@drawable/circle2"
-        android:onClick="onClick"
-        android:visibility="gone" />
+    <com.hm.animationdemo.chapter5.widget.AlipayView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getPosTan" />
 
-    <Button
-        android:id="@+id/item3"
-        style="@style/MenuItemStyle"
-        android:background="@drawable/circle3"
-        android:onClick="onClick"
-        android:visibility="gone" />
-
-    <Button
-        android:id="@+id/item4"
-        style="@style/MenuItemStyle"
-        android:background="@drawable/circle4"
-        android:onClick="onClick"
-        android:visibility="gone" />
-
-    <Button
-        android:id="@+id/item5"
-        style="@style/MenuItemStyle"
-        android:background="@drawable/circle5"
-        android:onClick="onClick"
-        android:visibility="gone" />
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,11 +8,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ViewPropertyAnimatorActivity"></activity>
-        <activity android:name=".activity.PathAnimatorActivity" />
+        <activity android:name=".chapter5.SVGActivity"></activity>
+        <activity android:name=".chapter5.PathAnimatorActivity" />
+        <activity android:name=".activity.ViewPropertyAnimatorActivity" />
+        <activity android:name=".activity.MenuAnimatorActivity" />
         <activity android:name=".activity.PropertyAnimatorEntranceActivity" />
         <activity android:name=".activity.ViewAnimationActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

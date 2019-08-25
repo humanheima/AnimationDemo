@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.hm.animationdemo.R
+import com.hm.animationdemo.chapter5.PathAnimatorActivity
 
 /**
  * Crete by dumingwei on 2019-08-22
@@ -33,14 +34,18 @@ class PropertyAnimatorEntranceActivity : AppCompatActivity() {
             R.id.btnBase -> {
                 PropertyAnimationActivity.launch(this)
             }
-            R.id.btnPath -> {
-                PathAnimatorActivity.launch(this)
+            R.id.btnMenu -> {
+                MenuAnimatorActivity.launch(this)
             }
             R.id.btnPointView -> {
                 PointViewActivity.launch(this)
             }
             R.id.btnViewPropertyAnimator -> {
                 ViewPropertyAnimatorActivity.launch(this)
+            }
+
+            R.id.btnPath -> {
+                PathAnimatorActivity.launch(this)
             }
         }
 
