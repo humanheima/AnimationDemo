@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.hm.animationdemo.R;
 import com.hm.animationdemo.chapter5.SVGActivity;
+import com.hm.animationdemo.chapter6.PaintActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnSvg:
                 SVGActivity.launch(this);
+                break;
+            case R.id.btnPaint:
+                PaintActivity.launch(this);
                 break;
             default:
                 break;
