@@ -8,7 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".chapter6.PaintActivity"></activity>
+        <activity android:name=".chapter7.BezierCurveActivity"></activity>
+        <activity android:name=".chapter6.PaintActivity" />
         <activity android:name=".chapter5.SVGActivity" />
         <activity android:name=".chapter5.PathAnimatorActivity" />
         <activity android:name=".activity.ViewPropertyAnimatorActivity" />

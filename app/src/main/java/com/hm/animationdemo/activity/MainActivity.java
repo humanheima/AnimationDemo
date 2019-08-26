@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.hm.animationdemo.R;
 import com.hm.animationdemo.chapter5.SVGActivity;
 import com.hm.animationdemo.chapter6.PaintActivity;
+import com.hm.animationdemo.chapter7.BezierCurveActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnPaint:
                 PaintActivity.launch(this);
+                break;
+            case R.id.btnBezierCurve:
+                BezierCurveActivity.launch(this);
                 break;
             default:
                 break;
