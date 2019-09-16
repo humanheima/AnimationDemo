@@ -42,6 +42,13 @@ class PropertyAnimationActivity : AppCompatActivity() {
 
     fun onClick(view: View) {
         when (view.id) {
+            R.id.btnInfinite -> {
+                val infiniteAnimator = ObjectAnimator.ofFloat(btnInfinite, "translationY", 0f, 100f)
+                infiniteAnimator.repeatCount = ValueAnimator.INFINITE
+                infiniteAnimator.repeatMode = ValueAnimator.REVERSE
+                infiniteAnimator.duration = 2000
+                infiniteAnimator.start()
+            }
             R.id.btnKeyFrameWithInterpolator -> {
                 val keyFrame0 = Keyframe.ofFloat(0f, 0f)
                 val keyFrame1 = Keyframe.ofFloat(0.5f, 100f)
