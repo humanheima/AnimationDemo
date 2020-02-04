@@ -195,8 +195,10 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 objectAnimator.start()
             }
             R.id.btn_pro_animation -> {
+
                 Log.e(TAG, "btn_pro_animation")
                 btn_pro_animation?.let {
+                    //注意：可以直接利用TextView的 getWidth和stWidth方法即可，不需要使用ViewWrapper
                     val viewWrapper = ViewWrapper(it)
                     val animator = ObjectAnimator.ofInt(viewWrapper, "width", 800)
                     animator.addListener(object : AnimatorListenerAdapter() {
