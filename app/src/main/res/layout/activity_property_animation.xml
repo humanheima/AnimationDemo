@@ -19,6 +19,15 @@
             android:text="属性动画无限循环"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btnTranslateInfinite"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"
+            android:text="平移动化无限循环"
+            android:textAllCaps="false" />
+
         <ImageView
             android:id="@+id/ivPhone"
             android:layout_width="40dp"

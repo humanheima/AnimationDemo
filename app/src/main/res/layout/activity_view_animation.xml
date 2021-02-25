@@ -64,6 +64,8 @@
 
         <include layout="@layout/layout_scanner_anim" />
 
+        <include layout="@layout/layout_round_rect_scanner_anim" />
+
         <ImageView
             android:id="@+id/ivframeAnim"
             android:layout_width="32dp"

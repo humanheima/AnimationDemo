@@ -4,11 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.animation.*
+import androidx.appcompat.app.AppCompatActivity
 import com.hm.animationdemo.R
 import kotlinx.android.synthetic.main.activity_view_animation.*
+import kotlinx.android.synthetic.main.layout_round_rect_scanner_anim.*
 import kotlinx.android.synthetic.main.layout_scanner_anim.*
 
 /**
@@ -83,6 +84,21 @@ class ViewAnimationActivity : AppCompatActivity() {
             animation4.startOffset = 1800
 
             circle4.startAnimation(animation4)
+
+        }
+
+        ivRoundRectStartScan.setOnClickListener {
+            round_rect_1.startAnimation(animation1)
+
+            animation2.startOffset = 600
+            round_rect_2.startAnimation(animation2)
+
+            animation3.startOffset = 1200
+            round_rect_3.startAnimation(animation3)
+
+            animation4.startOffset = 1800
+
+            round_rect_4.startAnimation(animation4)
 
         }
 

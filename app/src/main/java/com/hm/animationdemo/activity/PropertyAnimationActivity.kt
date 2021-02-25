@@ -40,6 +40,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_property_animation)
     }
 
+
     fun onClick(view: View) {
         when (view.id) {
             R.id.btnInfinite -> {
@@ -48,6 +49,30 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 infiniteAnimator.repeatMode = ValueAnimator.REVERSE
                 infiniteAnimator.duration = 2000
                 infiniteAnimator.start()
+            }
+            R.id.btnTranslateInfinite -> {
+                val mLeftAnimator = ObjectAnimator.ofFloat(btnTranslateInfinite, "translationX", 0f, -100f, 100f, 0f)
+                //val mRightAnimator = ObjectAnimator.ofFloat(btnTranslateInfinite, "translationX", -100f, 100f)
+                //val mBackAnimator = ObjectAnimator.ofFloat(btnTranslateInfinite, "translationX", 100f, 0f)
+
+
+                //mRightAnimator.repeatCount = ValueAnimator.INFINITE
+                //mRightAnimator.repeatMode = ValueAnimator.RESTART
+
+                //mBackAnimator.repeatCount = ValueAnimator.INFINITE
+                //mBackAnimator.repeatMode = ValueAnimator.RESTART
+
+                //val animatorSet = AnimatorSet()
+                //animatorSet.duration = 3000
+                //animatorSet.startDelay = 300
+
+                //animatorSet.playSequentially(mLeftAnimator, mRightAnimator, mBackAnimator)
+
+                mLeftAnimator.duration = 3000
+                mLeftAnimator.interpolator = LinearInterpolator()
+                mLeftAnimator.repeatCount = ValueAnimator.INFINITE
+                mLeftAnimator.repeatMode = ValueAnimator.RESTART
+                mLeftAnimator.start()
             }
             R.id.btnKeyFrameWithInterpolator -> {
                 val keyFrame0 = Keyframe.ofFloat(0f, 0f)
