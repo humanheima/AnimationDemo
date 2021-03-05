@@ -43,9 +43,67 @@ class PropertyAnimationActivity : AppCompatActivity() {
 
     fun onClick(view: View) {
         when (view.id) {
+            R.id.btnTransAnimator -> {
+                val infiniteAnimator = ObjectAnimator.ofFloat(ll_translate_layout, "translationY", 0f, 100f)
+                infiniteAnimator.duration = 3000
+                infiniteAnimator.addListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator?) {
+                        super.onAnimationEnd(animation)
+                    }
+                })
+                infiniteAnimator.start()
+            }
+            R.id.btnRedPacketAnimator -> {
+                //角度大于0，是顺时针旋转
+                val rotateObjectAnimator = ObjectAnimator.ofFloat(ivRedPacket, "rotation", 0f, 10f, -10f, 10f, -10f, 10f)
+                //val rotateObjectAnimator = ObjectAnimator.ofFloat(ivRedPacket, "rotation", 0f, 360f)
+                rotateObjectAnimator.duration = 1000L
+                //rotateObjectAnimator.setRepeatCount(1);
+
+                //绕中心点旋转，默认
+                /*ivBell.setPivotX(ivBell.getWidth() / 2.0F);
+                ivBell.setPivotY(ivBell.getHeight() / 2.0F);*/
+
+
+                /*//绕左上角旋转
+                ivBell.setPivotX(0.0F);
+                ivBell.setPivotY(0.0F);*/
+
+                //绕水平中心点
+                ivRedPacket.pivotY = ivRedPacket.height.toFloat()
+                ivRedPacket.pivotX = ivRedPacket.width / 2f
+
+                //绕竖直中心点
+                //ivBell.setPivotX(0.0F);
+
+                Log.d(TAG, "onClick: getPivotX=" + ivRedPacket.pivotX)
+                Log.d(TAG, "onClick: getPivotY=" + ivRedPacket.pivotY)
+                Log.d(TAG, "onClick: getLeft=" + ivRedPacket.left)
+                Log.d(TAG, "onClick: getX=" + ivRedPacket.x)
+                Log.d(TAG, "onClick: getWidth=" + ivRedPacket.width)
+
+                //rotateObjectAnimator.repeatCount = ValueAnimator.INFINITE
+                //rotateObjectAnimator.repeatMode = ValueAnimator.RESTART
+
+                //rotatePauseAnimator.repeatCount = ValueAnimator.INFINITE
+                //rotatePauseAnimator.repeatMode = ValueAnimator.RESTART
+
+                rotateObjectAnimator.addListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator?) {
+                        /* ivRedPacket.postDelayed({
+                             rotateObjectAnimator.start()
+
+                         },500)*/
+                    }
+                })
+
+                rotateObjectAnimator.start()
+            }
+
             R.id.btnInfinite -> {
                 val infiniteAnimator = ObjectAnimator.ofFloat(btnInfinite, "translationY", 0f, 100f)
                 infiniteAnimator.repeatCount = ValueAnimator.INFINITE
+
                 infiniteAnimator.repeatMode = ValueAnimator.REVERSE
                 infiniteAnimator.duration = 2000
                 infiniteAnimator.start()
