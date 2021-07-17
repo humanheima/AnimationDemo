@@ -26,6 +26,7 @@
         <activity android:name=".activity.LayoutAnimationActivity" />
         <activity android:name=".activity.PropertyAnimationActivity" />
         <activity android:name=".activity.PointViewActivity" />
+        <activity android:name=".activity.RotationAnimationActivity" />
     </application>
 
 </manifest>

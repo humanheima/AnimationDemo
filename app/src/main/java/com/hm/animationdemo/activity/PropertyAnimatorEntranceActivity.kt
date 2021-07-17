@@ -31,6 +31,9 @@ class PropertyAnimatorEntranceActivity : AppCompatActivity() {
 
     fun onClick(view: View) {
         when (view.id) {
+            R.id.btnTestRotateAnimation -> {
+                RotationAnimationActivity.launch(this)
+            }
             R.id.btnBase -> {
                 PropertyAnimationActivity.launch(this)
             }
