@@ -1,254 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/activity_property_animation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:background="#cccccc"
-        android:orientation="vertical">
+            android:id="@+id/activity_property_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:background="#cccccc"
+            android:orientation="vertical">
 
 
         <ImageView
-            android:id="@+id/ivRotationY"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/scenery" />
+                android:id="@+id/ivRotationY"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/scenery" />
 
         <Button
-            android:id="@+id/btnStartRotationAnimation1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="旋转动画RotationY" />
+                android:id="@+id/btnStartRotationAnimation1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="旋转动画RotationY" />
 
         <ImageView
-            android:id="@+id/ivRotationY2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/scenery" />
+                android:id="@+id/ivRotationY2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/scenery" />
 
         <Button
-            android:id="@+id/btnStartRotationAnimation2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="旋转动画RotationY" />
+                android:id="@+id/btnStartRotationAnimation2"
+                android:layout_width="match_parent"
+                android:onClick="onClick"
+                android:layout_height="wrap_content"
+                android:text="旋转动画Rotation" />
 
         <LinearLayout
 
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/colorAccent"
-            android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorAccent"
+                android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/ll_translate_layout"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/colorPrimary"
-                android:orientation="vertical" />
+                    android:id="@+id/ll_translate_layout"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:orientation="vertical" />
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnTransAnimator"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="平移和透明度动画，平移距离超过直接父布局"
-            android:textAllCaps="false" />
+                android:id="@+id/btnTransAnimator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="平移和透明度动画，平移距离超过直接父布局"
+                android:textAllCaps="false" />
 
         <ImageView
-            android:id="@+id/ivRedPacket"
-            android:layout_width="53dp"
-            android:layout_height="53dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ic_red_packet" />
+                android:id="@+id/ivRedPacket"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_red_packet" />
 
 
         <Button
-            android:id="@+id/btnRedPacketAnimator"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="测试红包的换一晃动画"
-            android:textAllCaps="false" />
+                android:id="@+id/btnRedPacketAnimator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="测试红包的换一晃动画"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btnInfinite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="属性动画无限循环"
-            android:textAllCaps="false" />
+                android:id="@+id/btnInfinite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="属性动画无限循环"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btnTranslateInfinite"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:onClick="onClick"
-            android:text="平移动化无限循环"
-            android:textAllCaps="false" />
+                android:id="@+id/btnTranslateInfinite"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onClick"
+                android:text="平移动化无限循环"
+                android:textAllCaps="false" />
 
         <ImageView
-            android:id="@+id/ivPhone"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/ic_phone" />
+                android:id="@+id/ivPhone"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/ic_phone" />
 
         <Button
-            android:id="@+id/btnKeyFrameWithInterpolator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="使用KeyFrame并添加差值器"
-            android:textAllCaps="false" />
+                android:id="@+id/btnKeyFrameWithInterpolator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="使用KeyFrame并添加差值器"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btnKeyFrame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="使用KeyFrame"
-            android:textAllCaps="false" />
+                android:id="@+id/btnKeyFrame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="使用KeyFrame"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btnKeyFrameChangeManyProperty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="使用KeyFrame同时改变多个属性"
-            android:textAllCaps="false" />
+                android:id="@+id/btnKeyFrameChangeManyProperty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="使用KeyFrame同时改变多个属性"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btn_property_value_holder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="组合动画之PropertyValuesHolder"
-            android:textAllCaps="false" />
+                android:id="@+id/btn_property_value_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="组合动画之PropertyValuesHolder"
+                android:textAllCaps="false" />
 
         <com.hm.animationdemo.widget.CharButton
-            android:id="@+id/btnPropertyValueHolderOfObject"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:onClick="onClick"
-            android:text="PropertyValuesHolder的ofObject"
-            android:textAllCaps="false" />
+                android:id="@+id/btnPropertyValueHolderOfObject"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="PropertyValuesHolder的ofObject"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btn_animation_xml"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="从xml文件中加载动画" />
+                android:id="@+id/btn_animation_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="从xml文件中加载动画" />
 
         <Button
-            android:id="@+id/btn_bg_animation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="改变背景颜色" />
+                android:id="@+id/btn_bg_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="改变背景颜色" />
 
         <Button
-            android:id="@+id/btn_animation_set"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:onClick="onClick"
-            android:text="动画集合" />
+                android:id="@+id/btn_animation_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:onClick="onClick"
+                android:text="动画集合" />
 
         <TextView
-            android:id="@+id/tv_listen_animation"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:background="@color/colorPrimary"
-            android:onClick="onClick"
-            android:text="监听动画的开始" />
+                android:id="@+id/tv_listen_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimary"
+                android:onClick="onClick"
+                android:text="监听动画的开始" />
 
         <Button
-            android:id="@+id/btn_pro_animation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="任意属性做动画" />
+                android:id="@+id/btn_pro_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="任意属性做动画" />
 
         <Button
-            android:id="@+id/btn_value_animation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="ValueAnimation"
-            android:textAllCaps="false" />
+                android:id="@+id/btn_value_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="ValueAnimation"
+                android:textAllCaps="false" />
 
         <ImageView
-            android:id="@+id/ivBell"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="40dp"
-            android:onClick="onClick"
-            android:src="@drawable/ic_bell" />
+                android:id="@+id/ivBell"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:onClick="onClick"
+                android:src="@drawable/ic_bell" />
 
         <Button
-            android:id="@+id/btn_bell_shake_animation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="铃铛抖动动画"
-            android:textAllCaps="false" />
+                android:id="@+id/btn_bell_shake_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="铃铛抖动动画"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btn_rotate_animation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="旋转动画"
-            android:textAllCaps="false" />
+                android:id="@+id/btn_rotate_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="旋转动画"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btnChangeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="改变文字"
-            android:textAllCaps="false" />
+                android:id="@+id/btnChangeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="改变文字"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btnAnimatorSetBuilder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="测试Animator.Builder"
-            android:textAllCaps="false" />
+                android:id="@+id/btnAnimatorSetBuilder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="测试Animator.Builder"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btnCancelAnimatorSetBuilder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="停止动画测试Animator.Builder"
-            android:textAllCaps="false" />
+                android:id="@+id/btnCancelAnimatorSetBuilder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="停止动画测试Animator.Builder"
+                android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btnAnimatorSetDelay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:text="测试AnimatorSet的延迟启动"
-            android:textAllCaps="false" />
+                android:id="@+id/btnAnimatorSetDelay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="测试AnimatorSet的延迟启动"
+                android:textAllCaps="false" />
 
     </LinearLayout>
 
