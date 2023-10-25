@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -19,5 +19,37 @@
         <item name="android:layout_height">30dp</item>
         <item name="android:layout_gravity">right|bottom</item>
     </style>
+
+    <style name="TransitionAnimation" parent="AppTheme">
+        <item name="android:windowContentTransitions">true</item>
+        <!--ActivityA 跳转到 ActivityB，ActivityB中的View进入场景的transition。-->
+        <item name="android:windowEnterTransition">@transition/trans_fade</item>
+        <!--ActivityA 跳转到 ActivityB，ActivityA中的View退出场景的transition。-->
+        <item name="android:windowExitTransition">@transition/trans_fade</item>
+
+        <!--ActivityB 返回到 ActivityA，ActivityB中的View退出场景的transition。-->
+        <item name="android:windowReturnTransition">@transition/trans_fade</item>
+
+        <!--ActivityB 返回到 ActivityA，ActivityA中的View进入场景的transition。-->
+        <item name="android:windowReenterTransition">@transition/trans_fade</item>
+
+
+    </style>
+
+    <style name="TransitionAnimation2" parent="AppTheme">
+        <item name="android:windowContentTransitions">true</item>
+        <!--ActivityA 跳转到 ActivityB，ActivityB中的View进入场景的transition。-->
+        <item name="android:windowEnterTransition">@transition/trans_explode</item>
+        <!--ActivityA 跳转到 ActivityB，ActivityA中的View退出场景的transition。-->
+        <item name="android:windowExitTransition">@transition/trans_explode</item>
+
+        <!--ActivityB 返回到 ActivityA，ActivityB中的View退出场景的transition。-->
+        <item name="android:windowReturnTransition">@transition/trans_explode</item>
+
+        <!--ActivityB 返回到 ActivityA，ActivityA中的View进入场景的transition。-->
+        <item name="android:windowReenterTransition">@transition/trans_explode</item>
+
+    </style>
+
 
 </resources>

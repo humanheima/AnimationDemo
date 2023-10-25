@@ -162,19 +162,19 @@ class ViewAnimationActivity : AppCompatActivity() {
 
     private fun animSet(view: View) {
         val alphaAnim = AlphaAnimation(1.0f, 0.1f)
+        alphaAnim.duration = 2000
 
-        val scaleAnim = ScaleAnimation(0f, 1.4f, 0f, 1.4f,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+//        val scaleAnim = ScaleAnimation(0f, 1.4f, 0f, 1.4f,
+//                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
 
         val rotateAnim = RotateAnimation(0f, 720f,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
 
+        rotateAnim.startOffset = 2000
         val animationSet = AnimationSet(true)
         animationSet.addAnimation(alphaAnim)
-        animationSet.addAnimation(scaleAnim)
+        //animationSet.addAnimation(scaleAnim)
         animationSet.addAnimation(rotateAnim)
-
-        animationSet.duration = 2000
 
         view.startAnimation(animationSet)
     }

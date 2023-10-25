@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hm.animationdemo">
+        package="com.hm.animationdemo">
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".chapter7.BezierCurveActivity"></activity>
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity
+                android:name=".activity.FrameAnimationActivity"
+                android:exported="false" />
+        <activity
+                android:name=".activity.TransitionAnimActivity"
+                android:exported="false" />
+        <activity
+                android:name=".activity.ActivityOptionsAnimationActivity"
+                android:exported="false" />
+        <activity android:name=".chapter7.BezierCurveActivity" />
         <activity android:name=".chapter6.PaintActivity" />
         <activity android:name=".chapter5.SVGActivity" />
         <activity android:name=".chapter5.PathAnimatorActivity" />
