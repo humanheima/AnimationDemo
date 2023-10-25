@@ -22,5 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="200dp" />
 
+    <TextView
+            android:id="@+id/tvFrameAnimation"
+            android:layout_width="128dp"
+            android:text="@string/app_name"
+            android:layout_height="112dp" />
+
 
 </LinearLayout>
