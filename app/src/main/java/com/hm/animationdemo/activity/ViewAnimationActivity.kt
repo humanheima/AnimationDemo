@@ -147,7 +147,7 @@ class ViewAnimationActivity : AppCompatActivity() {
         val animation = RotateAnimation(0f, 650f,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
         animation.duration = 3000
-        animation.fillAfter = true
+        //animation.fillAfter = true
         view.startAnimation(animation)
     }
 
