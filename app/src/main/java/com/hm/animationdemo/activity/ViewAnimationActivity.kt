@@ -5,12 +5,35 @@ import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
-import android.view.animation.*
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.AnimationSet
+import android.view.animation.AnimationUtils
+import android.view.animation.BounceInterpolator
+import android.view.animation.RotateAnimation
+import android.view.animation.ScaleAnimation
+import android.view.animation.TranslateAnimation
 import androidx.appcompat.app.AppCompatActivity
 import com.hm.animationdemo.R
-import kotlinx.android.synthetic.main.activity_view_animation.*
-import kotlinx.android.synthetic.main.layout_round_rect_scanner_anim.*
-import kotlinx.android.synthetic.main.layout_scanner_anim.*
+import kotlinx.android.synthetic.main.activity_view_animation.btnAlpha
+import kotlinx.android.synthetic.main.activity_view_animation.btnAnimSet
+import kotlinx.android.synthetic.main.activity_view_animation.btnRotate
+import kotlinx.android.synthetic.main.activity_view_animation.btnScale
+import kotlinx.android.synthetic.main.activity_view_animation.btnScaleImg
+import kotlinx.android.synthetic.main.activity_view_animation.btnTranslate
+import kotlinx.android.synthetic.main.activity_view_animation.ivScene
+import kotlinx.android.synthetic.main.activity_view_animation.ivframeAnim
+import kotlinx.android.synthetic.main.activity_view_animation.ivframeAnimAnother
+import kotlinx.android.synthetic.main.layout_round_rect_scanner_anim.ivRoundRectStartScan
+import kotlinx.android.synthetic.main.layout_round_rect_scanner_anim.round_rect_1
+import kotlinx.android.synthetic.main.layout_round_rect_scanner_anim.round_rect_2
+import kotlinx.android.synthetic.main.layout_round_rect_scanner_anim.round_rect_3
+import kotlinx.android.synthetic.main.layout_round_rect_scanner_anim.round_rect_4
+import kotlinx.android.synthetic.main.layout_scanner_anim.circle1
+import kotlinx.android.synthetic.main.layout_scanner_anim.circle2
+import kotlinx.android.synthetic.main.layout_scanner_anim.circle3
+import kotlinx.android.synthetic.main.layout_scanner_anim.circle4
+import kotlinx.android.synthetic.main.layout_scanner_anim.ivStartScan
 
 /**
  * Crete by dumingwei on 2019/3/11
@@ -128,8 +151,16 @@ class ViewAnimationActivity : AppCompatActivity() {
     }
 
     private fun scale(view: View) {
-        val animation = ScaleAnimation(0.0f, 1.4f, 0.0f, 1.4f
-                , Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        val animation = ScaleAnimation(
+            0.0f,
+            1.4f,
+            0.0f,
+            1.4f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f
+        )
         animation.duration = 3000
         animation.fillAfter = true
         view.startAnimation(animation)
@@ -144,17 +175,20 @@ class ViewAnimationActivity : AppCompatActivity() {
     }
 
     private fun rotate(view: View) {
-        val animation = RotateAnimation(0f, 650f,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        val animation = RotateAnimation(
+            0f, 650f,
+            Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f
+        )
         animation.duration = 3000
         //animation.fillAfter = true
         view.startAnimation(animation)
     }
 
     private fun translate(view: View) {
-        val animation = TranslateAnimation(Animation.ABSOLUTE, 0f,
-                Animation.ABSOLUTE, -80f, Animation.ABSOLUTE, 0f
-                , Animation.ABSOLUTE, -80f)
+        val animation = TranslateAnimation(
+            Animation.ABSOLUTE, 0f,
+            Animation.ABSOLUTE, -80f, Animation.ABSOLUTE, 0f, Animation.ABSOLUTE, -80f
+        )
         animation.duration = 1000
         animation.fillAfter = true
         view.startAnimation(animation)
@@ -167,10 +201,12 @@ class ViewAnimationActivity : AppCompatActivity() {
 //        val scaleAnim = ScaleAnimation(0f, 1.4f, 0f, 1.4f,
 //                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
 
-        val rotateAnim = RotateAnimation(0f, 720f,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        val rotateAnim = RotateAnimation(
+            0f, 720f,
+            Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f
+        )
 
-        rotateAnim.startOffset = 2000
+        rotateAnim.duration = 2000
         val animationSet = AnimationSet(true)
         animationSet.addAnimation(alphaAnim)
         //animationSet.addAnimation(scaleAnim)
@@ -180,8 +216,16 @@ class ViewAnimationActivity : AppCompatActivity() {
     }
 
     private fun scaleImg() {
-        val animation = ScaleAnimation(0.0f, 1.2f, 0.0f, 1.2f
-                , Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        val animation = ScaleAnimation(
+            0.0f,
+            1.2f,
+            0.0f,
+            1.2f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f
+        )
         animation.duration = 3000
         animation.fillAfter = true
         animation.interpolator = BounceInterpolator()
