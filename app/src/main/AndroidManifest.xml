@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.hm.animationdemo">
+    package="com.hm.animationdemo">
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
-                android:name=".activity.FrameAnimationActivity"
-                android:exported="false" />
+            android:name=".activity.FrameAnimationActivity"
+            android:exported="false" />
         <activity
-                android:name=".activity.TransitionAnimActivity"
-                android:exported="false" />
+            android:name=".activity.TransitionAnimActivity"
+            android:exported="false" />
         <activity
-                android:name=".activity.ActivityOptionsAnimationActivity"
-                android:exported="false" />
+            android:name=".activity.ActivityOptionsAnimationActivity"
+            android:exported="false"
+            android:windowBackground="@color/white" />
         <activity android:name=".chapter7.BezierCurveActivity" />
         <activity android:name=".chapter6.PaintActivity" />
         <activity android:name=".chapter5.SVGActivity" />
@@ -25,7 +26,9 @@
         <activity android:name=".activity.MenuAnimatorActivity" />
         <activity android:name=".activity.PropertyAnimatorEntranceActivity" />
         <activity android:name=".activity.ViewAnimationActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity
+            android:name=".activity.MainActivity"
+            android:windowBackground="@color/white">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

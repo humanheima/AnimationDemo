@@ -2,8 +2,6 @@ package com.hm.animationdemo.activity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.transition.Transition;
@@ -11,9 +9,11 @@ import android.transition.TransitionInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
+
 import com.hm.animationdemo.R;
 import com.hm.animationdemo.chapter5.SVGActivity;
 import com.hm.animationdemo.chapter6.PaintActivity;
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_listen_animation:
                 Intent starter = new Intent(this, ViewAnimationActivity.class);
                 startActivity(starter);
-                overridePendingTransition(R.anim.enter_ainm, R.anim.exit_ainm);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 break;
             case R.id.btn_property_animation:
                 PropertyAnimatorEntranceActivity.launch(this);
@@ -101,11 +101,16 @@ public class MainActivity extends AppCompatActivity {
 //                ScreenUtil.dpToPx(this, 100));
 
         // Note：感觉效果不咋地
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.scenery);
-        ActivityOptions activityOptions = ActivityOptions.makeThumbnailScaleUpAnimation(ivScenery, bitmap,
-                0, 0);
+//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.scenery);
+//        ActivityOptions activityOptions = ActivityOptions.makeThumbnailScaleUpAnimation(ivScenery, bitmap,
+//                0, 0);
+//
+        Intent intent = new Intent(this, ActivityOptionsAnimationActivity.class);
+        // 创建 ActivityOptions 对象
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.fade_in, R.anim.fade_out);
+        startActivity(intent, options.toBundle());
 
-        ActivityOptionsAnimationActivity.launch(this, activityOptions.toBundle());
+        //ActivityOptionsAnimationActivity.launch(this, activityOptions.toBundle());
     }
 
     private void testTransitionAnimation() {

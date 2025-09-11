@@ -1,6 +1,16 @@
 package com.hm.animationdemo.activity
 
-import android.animation.*
+import android.animation.Animator
+import android.animation.AnimatorInflater
+import android.animation.AnimatorListenerAdapter
+import android.animation.AnimatorSet
+import android.animation.ArgbEvaluator
+import android.animation.IntEvaluator
+import android.animation.Keyframe
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
+import android.animation.TimeInterpolator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -10,10 +20,28 @@ import android.view.animation.Animation
 import android.view.animation.BounceInterpolator
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.animation.addListener
 import com.hm.animationdemo.R
 import com.hm.animationdemo.anim.SwingAnimation
 import com.hm.animationdemo.evaluator.CharEvaluator
-import kotlinx.android.synthetic.main.activity_property_animation.*
+import kotlinx.android.synthetic.main.activity_property_animation.btnAnimatorSetBuilder
+import kotlinx.android.synthetic.main.activity_property_animation.btnAnimatorSetDelay
+import kotlinx.android.synthetic.main.activity_property_animation.btnCancelAnimatorSetBuilder
+import kotlinx.android.synthetic.main.activity_property_animation.btnChangeText
+import kotlinx.android.synthetic.main.activity_property_animation.btnInfinite
+import kotlinx.android.synthetic.main.activity_property_animation.btnPropertyValueHolderOfObject
+import kotlinx.android.synthetic.main.activity_property_animation.btnTranslateInfinite
+import kotlinx.android.synthetic.main.activity_property_animation.btn_animation_set
+import kotlinx.android.synthetic.main.activity_property_animation.btn_bg_animation
+import kotlinx.android.synthetic.main.activity_property_animation.btn_pro_animation
+import kotlinx.android.synthetic.main.activity_property_animation.btn_property_value_holder
+import kotlinx.android.synthetic.main.activity_property_animation.btn_value_animation
+import kotlinx.android.synthetic.main.activity_property_animation.ivBell
+import kotlinx.android.synthetic.main.activity_property_animation.ivPhone
+import kotlinx.android.synthetic.main.activity_property_animation.ivRedPacket
+import kotlinx.android.synthetic.main.activity_property_animation.ivRotationY
+import kotlinx.android.synthetic.main.activity_property_animation.ll_translate_layout
+import kotlinx.android.synthetic.main.activity_property_animation.tv_listen_animation
 
 class PropertyAnimationActivity : AppCompatActivity() {
 
@@ -48,11 +76,22 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 rotationYAnimator.duration = 500
                 rotationYAnimator.start()
             }
+
             R.id.btnStartRotationAnimation2 -> {
                 val rotationYAnimator = ObjectAnimator.ofFloat(ivRotationY, "rotation", 180f, 0f)
                 rotationYAnimator.duration = 500
+                rotationYAnimator.startDelay = 5000
+                rotationYAnimator.addListener(onStart = {
+                    Log.d(TAG, "addListener onStart: ")
+                })
+                rotationYAnimator.addListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationStart(animation: Animator?) {
+                        Log.d(TAG, "onAnimationStart: ")
+                    }
+                })
                 rotationYAnimator.start()
             }
+
             R.id.btnTransAnimator -> {
                 val infiniteAnimator =
                     ObjectAnimator.ofFloat(ll_translate_layout, "translationY", 0f, 100f)
@@ -64,6 +103,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 })
                 infiniteAnimator.start()
             }
+
             R.id.btnRedPacketAnimator -> {
                 //角度大于0，是顺时针旋转
                 val rotateObjectAnimator =
@@ -120,6 +160,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 infiniteAnimator.duration = 2000
                 infiniteAnimator.start()
             }
+
             R.id.btnTranslateInfinite -> {
                 val mLeftAnimator = ObjectAnimator.ofFloat(
                     btnTranslateInfinite,
@@ -151,6 +192,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 mLeftAnimator.repeatMode = ValueAnimator.RESTART
                 mLeftAnimator.start()
             }
+
             R.id.btnKeyFrameWithInterpolator -> {
                 val keyFrame0 = Keyframe.ofFloat(0f, 0f)
                 val keyFrame1 = Keyframe.ofFloat(0.5f, 100f)
@@ -191,6 +233,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 animator.duration = 2000
                 animator.start()
             }
+
             R.id.btnKeyFrameChangeManyProperty -> {
                 val keyFrame0 = Keyframe.ofFloat(0f, 0f)
                 val keyFrame1 = Keyframe.ofFloat(0.1f, -20f)
@@ -258,6 +301,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 valuesHolder.duration = 2000
                 valuesHolder.start()
             }
+
             R.id.btnPropertyValueHolderOfObject -> {
                 Log.d(TAG, "onClick: btnPropertyValueHolderOfObject")
                 val valuesHolder1 = PropertyValuesHolder.ofObject(
@@ -271,6 +315,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 objectAnimator.duration = 2000
                 objectAnimator.start()
             }
+
             R.id.btn_animation_xml -> {
                 //获取AnimatorSet
                 /*val animatorSet = AnimatorInflater.loadAnimator(this, R.animator.property_animation) as AnimatorSet
@@ -298,6 +343,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 colorAnimator.repeatCount = 4
                 colorAnimator.start()
             }
+
             R.id.btn_animation_set -> {
                 /* AnimatorSet set = new AnimatorSet();
                 List<Animator> animatorList = new ArrayList<>();
@@ -309,6 +355,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 set.setTarget(btn_animation_set)
                 set.start()
             }
+
             R.id.tv_listen_animation -> {
                 val objectAnimator =
                     ObjectAnimator.ofFloat(tv_listen_animation, "scaleX", 1.0f, 2.0f)
@@ -321,6 +368,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 });*/
                 objectAnimator.start()
             }
+
             R.id.btn_pro_animation -> {
 
                 Log.e(TAG, "btn_pro_animation")
@@ -337,6 +385,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                     animator.start()
                 }
             }
+
             R.id.btn_value_animation -> {
                 Log.e(TAG, "btn_pro_animation")
                 val valueAnimator = ValueAnimator.ofInt(0, 100)
@@ -356,6 +405,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 valueAnimator.duration = 3000
                 valueAnimator.start()
             }
+
             R.id.btn_bell_shake_animation -> {
                 Log.e(TAG, "btn_pro_animation")
 
@@ -370,6 +420,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 swingAnimation.startOffset = 500   //动画播放延迟
                 ivBell!!.startAnimation(swingAnimation)
             }
+
             R.id.btn_rotate_animation -> {
                 //角度大于0，是顺时针旋转
                 val rotateObjectAnimator = ObjectAnimator.ofFloat(
@@ -402,6 +453,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 rotateObjectAnimator.interpolator = LinearInterpolator()
                 rotateObjectAnimator.start()
             }
+
             R.id.btnChangeText -> {
                 val animChangeText = ValueAnimator.ofObject(
                     CharEvaluator(),
@@ -414,6 +466,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 animChangeText.duration = 2000
                 animChangeText.start()
             }
+
             R.id.btnAnimatorSetBuilder -> {
 
                 val colorAnimator = ObjectAnimator.ofInt(
@@ -459,6 +512,7 @@ class PropertyAnimationActivity : AppCompatActivity() {
                 animatorSet?.start()
 
             }
+
             R.id.btnCancelAnimatorSetBuilder -> {
                 animatorSet?.cancel()
             }

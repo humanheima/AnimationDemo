@@ -26,7 +26,7 @@ class ActivityOptionsAnimationActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
+        //window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_options_animation)
     }

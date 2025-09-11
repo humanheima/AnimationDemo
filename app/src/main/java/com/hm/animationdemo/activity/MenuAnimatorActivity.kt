@@ -5,11 +5,18 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.hm.animationdemo.R
-import kotlinx.android.synthetic.main.activity_menu_animator.*
+import kotlinx.android.synthetic.main.activity_menu_animator.item1
+import kotlinx.android.synthetic.main.activity_menu_animator.item2
+import kotlinx.android.synthetic.main.activity_menu_animator.item3
+import kotlinx.android.synthetic.main.activity_menu_animator.item4
+import kotlinx.android.synthetic.main.activity_menu_animator.item5
+import kotlin.math.cos
+import kotlin.math.sin
 
 /**
  * Crete by dumingwei on 2019-08-22
@@ -22,6 +29,8 @@ class MenuAnimatorActivity : AppCompatActivity() {
     private var mIsMenuOpen = false
 
     companion object {
+
+        private const val TAG = "MenuAnimatorActivity"
 
         fun launch(context: Context) {
             val intent = Intent(context, MenuAnimatorActivity::class.java)
@@ -55,20 +64,38 @@ class MenuAnimatorActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * @param radius，圆形菜单的半径，最多能移动多远
+     */
     private fun doAnimateOpen(view: View, index: Int, total: Int, radius: Int) {
         if (view.visibility != View.VISIBLE) {
             view.visibility = View.VISIBLE
         }
-        val degree = Math.toRadians(90.0) / (total - 1) * index
-        val translationX = -(radius * Math.sin(degree)).toFloat()
-        val translationY = -(radius * Math.cos(degree)).toFloat()
+        //转化为 弧度
+        val toRadians = Math.toRadians(90.0)
+        //角度最大为90度[0,90]
+        /**
+         * sin(0) = 0
+         * cos(0) = 1
+         *
+         * sin(90) = 1.0
+         * cos(90) = 0
+         *
+         */
+        val degree = toRadians / (total - 1) * index
+        val translationX = -(radius * sin(degree)).toFloat()
+        val translationY = -(radius * cos(degree)).toFloat()
+        Log.d(
+            TAG,
+            "doAnimateOpen: toRadians = $toRadians, degree = $degree, translationX = $translationX, translationY = $translationY"
+        )
         val set = AnimatorSet()
         set.playTogether(
-                ObjectAnimator.ofFloat(view, "translationX", 0f, translationX),
-                ObjectAnimator.ofFloat(view, "translationY", 0f, translationY),
-                ObjectAnimator.ofFloat(view, "scaleX", 0f, 1f),
-                ObjectAnimator.ofFloat(view, "scaleY", 0f, 1f),
-                ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
+            ObjectAnimator.ofFloat(view, "translationX", 0f, translationX),
+            ObjectAnimator.ofFloat(view, "translationY", 0f, translationY),
+            ObjectAnimator.ofFloat(view, "scaleX", 0f, 1f),
+            ObjectAnimator.ofFloat(view, "scaleY", 0f, 1f),
+            ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
         )
         set.duration = 500
         set.start()
@@ -89,15 +116,15 @@ class MenuAnimatorActivity : AppCompatActivity() {
         }
         val degree = Math.PI * index / ((total - 1) * 2)
 
-        val translationX = -(radius * Math.sin(degree)).toFloat()
-        val translationY = -(radius * Math.cos(degree)).toFloat()
+        val translationX = -(radius * sin(degree)).toFloat()
+        val translationY = -(radius * cos(degree)).toFloat()
         val set = AnimatorSet()
         set.playTogether(
-                ObjectAnimator.ofFloat(view, "translationX", translationX, 0f),
-                ObjectAnimator.ofFloat(view, "translationY", translationY, 0f),
-                ObjectAnimator.ofFloat(view, "scaleX", 1f, 0f),
-                ObjectAnimator.ofFloat(view, "scaleY", 1f, 0f),
-                ObjectAnimator.ofFloat(view, "alpha", 1f, 0f)
+            ObjectAnimator.ofFloat(view, "translationX", translationX, 0f),
+            ObjectAnimator.ofFloat(view, "translationY", translationY, 0f),
+            ObjectAnimator.ofFloat(view, "scaleX", 1f, 0f),
+            ObjectAnimator.ofFloat(view, "scaleY", 1f, 0f),
+            ObjectAnimator.ofFloat(view, "alpha", 1f, 0f)
         )
         set.duration = 500
         set.start()
