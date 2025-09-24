@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cccccc">
+
+    <LinearLayout
+        android:id="@+id/activity_property_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <!-- View A (正面) -->
+            <ImageView
+                android:id="@+id/viewA"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/scenery"
+                android:visibility="visible" />
+
+            <!-- View B (背面，初始旋转 180 度) -->
+
+            <ImageView
+                android:id="@+id/viewB"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:rotationY="180"
+                android:src="@drawable/ic_avatar"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btnStartRotationAnimation1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="test rotate"
+            android:textAllCaps="false"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

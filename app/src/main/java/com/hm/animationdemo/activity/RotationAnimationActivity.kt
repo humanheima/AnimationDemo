@@ -25,6 +25,7 @@ class RotationAnimationActivity : AppCompatActivity() {
     private var animatorSet: AnimatorSet? = null
 
     private lateinit var ivRotationY: ImageView
+    private lateinit var ivRotationYBack: ImageView
     private lateinit var ivRotationY2: ImageView
     private lateinit var ivRotationY3: ImageView
 
@@ -41,6 +42,7 @@ class RotationAnimationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rotate_animation)
 
         ivRotationY = findViewById(R.id.ivRotationY)
+        ivRotationYBack = findViewById(R.id.ivRotationY_Back)
         ivRotationY2 = findViewById(R.id.ivRotationY2)
         ivRotationY3 = findViewById(R.id.ivRotationY3)
 
@@ -52,6 +54,7 @@ class RotationAnimationActivity : AppCompatActivity() {
                 rotateMethod1()
                 //rotateMethod2()
             }
+
             R.id.btnStartRotationAnimation2 -> {
                 val rotationXAnimator = ObjectAnimator.ofFloat(ivRotationY2, "rotationX", 0f, 360f)
                 val density = resources.displayMetrics.density
@@ -62,6 +65,7 @@ class RotationAnimationActivity : AppCompatActivity() {
 
                 rotationXAnimator.start()
             }
+
             R.id.btnStartRotationAnimation3 -> {
                 val rotationXAnimator = ObjectAnimator.ofFloat(ivRotationY3, "rotation", 0f, 360f)
                 val density = resources.displayMetrics.density
@@ -80,15 +84,23 @@ class RotationAnimationActivity : AppCompatActivity() {
         Log.i(TAG, "onClick: ivRotationY.cameraDistance = ${ivRotationY.cameraDistance}")
 
         val density = resources.displayMetrics.density
-        val cameraDistance = density * 10000
+        //val cameraDistance = density * 10000
+        val cameraDistance = density * 20000
 
         Log.i(TAG, "onClick: densityDpi = $density  cameraDistance = $cameraDistance")
 
         ivRotationY.cameraDistance = cameraDistance
+        ivRotationYBack.cameraDistance = cameraDistance
 
-        val rotationYAnimator = ObjectAnimator.ofFloat(ivRotationY, "rotationY", 0f, 360f)
-        rotationYAnimator.duration = 3000
-        rotationYAnimator.start()
+        val rotationYAnimator = ObjectAnimator.ofFloat(ivRotationY, "rotationY", 0f, 120f)
+        val rotationYAnimator2 = ObjectAnimator.ofFloat(ivRotationYBack, "rotationY", 0f, 120f)
+        //rotationYAnimator.duration = 3000
+
+        animatorSet = AnimatorSet().also {
+            it.duration = 3000
+        }
+        animatorSet?.playTogether(rotationYAnimator, rotationYAnimator2)
+        animatorSet?.start()
     }
 
     /**
@@ -98,14 +110,28 @@ class RotationAnimationActivity : AppCompatActivity() {
         //val depth = 400f
         //val depth = 0f
         val depth = ivRotationY.measuredWidth / 2f
-        val rotate3dAnimation = Rotate3dAnimation(0f, 90f, ivRotationY.measuredWidth / 2f, ivRotationY.measuredHeight / 2f, depth, false)
+        val rotate3dAnimation = Rotate3dAnimation(
+            0f,
+            90f,
+            ivRotationY.measuredWidth / 2f,
+            ivRotationY.measuredHeight / 2f,
+            depth,
+            false
+        )
         rotate3dAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationRepeat(animation: Animation?) {
             }
 
             override fun onAnimationEnd(animation: Animation?) {
                 //从270到360度，顺时针旋转视图，此时reverse参数为false，达到360度动画结束时视图变得可见
-                val rotateAnimation = Rotate3dAnimation(270f, 360f, ivRotationY.measuredWidth / 2f, ivRotationY.measuredHeight / 2f, depth, true)
+                val rotateAnimation = Rotate3dAnimation(
+                    270f,
+                    360f,
+                    ivRotationY.measuredWidth / 2f,
+                    ivRotationY.measuredHeight / 2f,
+                    depth,
+                    true
+                )
                 rotateAnimation.duration = 1000
                 rotateAnimation.fillAfter = true
                 ivRotationY.startAnimation(rotateAnimation);

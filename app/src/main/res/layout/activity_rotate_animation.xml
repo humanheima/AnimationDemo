@@ -13,14 +13,29 @@
         android:layout_marginBottom="40dp"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/ivRotationY"
-            android:layout_width="192dp"
-            android:layout_height="240dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/scenery"
-            android:visibility="visible"
-            tools:visibility="visible" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivRotationY_Back"
+                android:layout_width="192dp"
+                android:layout_height="240dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/ic_avatar"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivRotationY"
+                android:layout_width="192dp"
+                android:layout_height="240dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/scenery"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+        </FrameLayout>
 
         <Button
             android:id="@+id/btnStartRotationAnimation1"
@@ -37,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
+            android:visibility="visible"
             tools:visibility="visible">
 
             <ImageView
@@ -63,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:orientation="vertical"
-            android:visibility="gone"
+            android:visibility="visible"
             tools:visibility="visible">
 
             <ImageView

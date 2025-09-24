@@ -39,6 +39,7 @@
         <activity android:name=".activity.PropertyAnimationActivity" />
         <activity android:name=".activity.PointViewActivity" />
         <activity android:name=".activity.RotationAnimationActivity" />
+        <activity android:name=".activity.Rotation2Activity" />
     </application>
 
 </manifest>
